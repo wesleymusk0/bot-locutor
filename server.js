@@ -12,7 +12,7 @@ const path = require('path');
 // WhatsApp Bot
 // ==========================
 const client = new Client({ authStrategy: new LocalAuth() });
-client.on('qr', qr => qrcode.generate(qr, { small: true }));
+client.on('qr', qr => qrcode.generate(qr, { small: true }), console.log(qr));
 client.on('ready', () => console.log('🤖 Bot pronto!'));
 client.initialize();
 
@@ -201,3 +201,4 @@ app.post('/webhook', async (req, res) => {
 });
 
 app.listen(3000, () => console.log("🌐 Webhook rodando na porta 3000"));
+
